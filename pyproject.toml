@@ -12,6 +12,8 @@ repository = "https://github.com/kirill-push/chatbot"
 python = "^3.11"
 torch = "^2.1.0"
 nltk = "^3.8.1"
+transformers = "^4.34.1"
+torchinfo = "^1.8.0"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.4.3"
@@ -37,7 +39,7 @@ disallow_any_explicit = true
 disallow_any_generics = false
 disallow_subclassing_any = true
 # platform
-python_version = "3.10"
+python_version = "3.11"
 # untyped
 disallow_untyped_calls = true
 disallow_untyped_defs = true
