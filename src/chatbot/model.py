@@ -20,6 +20,7 @@ class DialoGPTChatbot:
             )
         else:
             bot_input_ids = new_user_input_ids
+            self.first_input = False
 
         self.chat_history_ids = self.model.generate(
             bot_input_ids, max_length=1000, pad_token_id=self.tokenizer.eos_token_id
@@ -33,6 +34,4 @@ class DialoGPTChatbot:
                 self.chat_history_ids[:, bot_input_ids.shape[-1] :][0],
                 skipt_special_tokens=True,
             )
-        else:
-            self.first_input = False
         return response
