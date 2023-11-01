@@ -30,7 +30,7 @@ jobs:
           cache: 'poetry'
       # install requirements
       - name: Install requirements
-        run: poetry install --with test --without lint
+        run: poetry install --with test
       # run unit tests
       - name: Run unit tests
         run: |
