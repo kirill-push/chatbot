@@ -34,4 +34,4 @@ jobs:
       - name: Run linters
         run: |
           set -o pipefail
-          poetry run make lint
+          poetry run make lint-mypy-report
