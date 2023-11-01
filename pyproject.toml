@@ -52,6 +52,9 @@ warn_return_any = false
 warn_unreachable = true
 # Misc
 pretty = true
+exclude = [
+    '^test',
+]
 
 [build-system]
 requires = ["poetry-core"]
