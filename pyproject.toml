@@ -7,10 +7,11 @@ readme = "README.md"
 packages = [{include = "chatbot", from = "src"}]
 license = "MIT"
 repository = "https://github.com/kirill-push/chatbot"
+homepage = "https://github.com/johschmidt42/python-project-johannes"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-torch = "^2.1.0"
+torch = ">=2.0.0, !=2.0.1, !=2.1.0"
 nltk = "^3.8.1"
 transformers = "^4.34.1"
 torchinfo = "^1.8.0"
@@ -54,6 +55,15 @@ warn_return_any = false
 warn_unreachable = true
 # Misc
 pretty = true
+exclude = [
+    '.mypy_cache',
+    '.pytest_cache',
+    '.venv',
+    '.vscode',
+    '__pycache__',
+    '.coverage',
+    'htmlcov',
+]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
