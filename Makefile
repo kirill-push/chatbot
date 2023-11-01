@@ -40,11 +40,11 @@ lint-flake8:
 
 .PHONY: lint-mypy
 lint-mypy:
-	@mypy --config-file pyproject.toml ./src
+	@mypy --config-file pyproject.toml .
 
 .PHONY: lint-mypy-report
 lint-mypy-report:
-	@mypy --config-file pyproject.toml ./src --html-report ./mypy_html
+	@mypy --config-file pyproject.toml . --html-report ./mypy_html
 
 lint: lint-black lint-isort lint-flake8 lint-mypy
 
