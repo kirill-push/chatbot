@@ -1,6 +1,7 @@
 from typing import Optional
 
 import torch
+from torch import Tensor
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
@@ -8,7 +9,7 @@ class DialoGPTChatbot:
     def __init__(self) -> None:
         self.tokenizer = AutoTokenizer.from_pretrained("microsoft/DialoGPT-small")
         self.model = AutoModelForCausalLM.from_pretrained("microsoft/DialoGPT-small")
-        self.chat_history_ids: Optional[torch.Tensor] = None
+        self.chat_history_ids: Optional[Tensor] = None
 
     def get_response(self, user_input: str) -> str:
         new_user_input_ids = self.tokenizer.encode(
