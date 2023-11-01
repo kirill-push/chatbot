@@ -17,6 +17,8 @@ torchinfo = "^1.8.0"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.4.3"
+pytest-sugar = "^0.9.7"
+pytest-cov = "^4.1.0"
 
 [tool.poetry.group.lint.dependencies]
 black = "^23.10.1"
@@ -52,13 +54,15 @@ warn_return_any = false
 warn_unreachable = true
 # Misc
 pretty = true
-exclude = [
-    '^test',
-]
 
 [tool.pytest.ini_options]
-timeout = 5
 testpaths = ["tests"]
+addopts = "-p no:cacheprovider"
+
+[tool.coverage.report]
+exclude_lines = [
+    'if __name__ == "__main__":'
+]
 
 [build-system]
 requires = ["poetry-core"]
