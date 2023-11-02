@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Kirill Pushkarev <kirillpush@yandex.ru>"]
 readme = "README.md"
-packages = [{include = "chatbot", from = "src"}]
+packages = [{include = "*", from = "src/chatbot"}, {include = "tests"}]
 license = "MIT"
 repository = "https://github.com/kirill-push/chatbot"
 homepage = "https://github.com/johschmidt42/python-project-johannes"
@@ -15,11 +15,14 @@ torch = ">=2.0.0, !=2.0.1, !=2.1.0"
 nltk = "^3.8.1"
 transformers = "^4.34.1"
 torchinfo = "^1.8.0"
+python-telegram-bot = "==13.5"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.4.3"
 pytest-sugar = "^0.9.7"
 pytest-cov = "^4.1.0"
+pytest-mock = "^3.12.0"
+datetime = "^5.2"
 
 [tool.poetry.group.lint.dependencies]
 black = "^23.10.1"
@@ -27,6 +30,10 @@ mypy = "^1.6.1"
 ruff = "^0.1.3"
 isort = "^5.12.0"
 flake8 = "^6.1.0"
+
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.26.0"
 
 [tool.isort]
 profile = "black"
