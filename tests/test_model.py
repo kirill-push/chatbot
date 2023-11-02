@@ -1,20 +1,18 @@
 import pytest
-
-from chatbot.model import DialoGPTChatbot
+from model import BlenderChatbot
 
 
 @pytest.fixture
-def chatbot() -> DialoGPTChatbot:
-    return DialoGPTChatbot()
+def chatbot() -> BlenderChatbot:
+    return BlenderChatbot()
 
 
-def test_initialization(chatbot: DialoGPTChatbot) -> None:
-    assert chatbot.tokenizer is not None
-    assert chatbot.model is not None
-    assert chatbot.chat_history_ids.nelement() == 0
+def test_initialization(chatbot: BlenderChatbot) -> None:
+    assert chatbot.chatbot is not None
+    assert chatbot.conversation is not None
 
 
-def test_get_response(chatbot: DialoGPTChatbot) -> None:
+def test_get_response(chatbot: BlenderChatbot) -> None:
     user_input = "Hello"
     response = chatbot.get_response(user_input)
 
@@ -25,3 +23,13 @@ def test_get_response(chatbot: DialoGPTChatbot) -> None:
     new_response = chatbot.get_response(new_user_input)
 
     assert new_response != ""
+
+
+def test_add_message(chatbot: BlenderChatbot) -> None:
+    new_bot_message = "Hi!"
+    old_messages = chatbot.conversation.messages.copy()
+    chatbot.add_message(content=new_bot_message)
+    assert chatbot.conversation.messages != old_messages
+
+    user_input = "Hello!"
+    assert chatbot.get_response(user_input) != ""
