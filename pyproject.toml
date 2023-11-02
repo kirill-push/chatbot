@@ -80,6 +80,7 @@ addopts = "-p no:cacheprovider"
 exclude_lines = [
     'if __name__ == "__main__":'
 ]
+omit = ['__init__.py']
 
 [build-system]
 requires = ["poetry-core"]
