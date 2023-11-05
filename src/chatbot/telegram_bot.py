@@ -29,7 +29,7 @@ def help(update: Update, context: CallbackContext) -> None:
     update.message.reply_text("Help!")
 
 
-def main() -> None:
+if __name__ == "__main__":
     try:
         updater = Updater(str(os.environ.get("TELEGRAM_TOKEN")), use_context=True)
     except Exception:
@@ -46,7 +46,3 @@ def main() -> None:
     updater.start_polling()
 
     updater.idle()
-
-
-if __name__ == "__main__":
-    main()
