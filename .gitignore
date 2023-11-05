@@ -131,3 +131,4 @@ cython_debug/
 
 # VSCode files
 .vscode/
+.token
